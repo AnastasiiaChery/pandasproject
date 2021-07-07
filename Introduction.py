@@ -78,24 +78,24 @@ filename = 'heart.csv'
 
 
 # Inspecting dataframe
-df=pd.read_csv('astronauts.csv')
-print(df.head())
-
-# fron end
-print(df.tail(1))
-
-# random
-print(df.sample(3))
-print(df.info())
-
-# count, mean, min, max .....
-print(df.describe())
-
-# cuont rov , column
-print(df.shape)
-
-# corelation
-print(df.corr())
-
-# counts
-print(df["Year"].value_counts())
+# df=pd.read_csv('astronauts.csv')
+# print(df.head())
+#
+# # fron end
+# print(df.tail(1))
+#
+# # random
+# print(df.sample(3))
+# print(df.info())
+#
+# # count, mean, min, max .....
+# print(df.describe())
+#
+# # cuont rov , column
+# print(df.shape)
+#
+# # corelation
+# print(df.corr())
+#
+# # counts
+# print(df["Year"].value_counts())
