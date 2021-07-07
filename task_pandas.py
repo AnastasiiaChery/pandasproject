@@ -275,3 +275,110 @@ diamonds = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/m
 # #
 # print(diamonds.shape)
 # print(diamonds.duplicated().sum())
+
+# #
+# # 3. Напишите программу Pandas для извлечения первых 7 записей из файла сотрудников.
+# #
+employees= pd.read_csv('EMPLOYEES.csv')
+# print(employees.head(7))
+#
+# #
+# # 4. Напишите программу Pandas, чтобы выбрать отдельный идентификатор отдела из файла сотрудников.
+# print(employees.department_id.unique())
+# #
+# #
+# # 5. Напишите программу Pandas, в которой будут отображаться имя и фамилия, а также номер отдела для всех сотрудников, чья фамилия «Макьюэн».
+# result = employees[employees.last_name =='McEwen']
+# for index, row in result.iterrows():
+#     print(row['last_name'],row['first_name'],row['department_id'])
+# #
+# # 6. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела для тех сотрудников, чье имя начинается с буквы «S».
+# res=employees[employees.first_name.str[:1]=='S']
+# for index, row in res.iterrows():
+#     print(row['last_name'],row['first_name'], row['salary'], row['department_id'])
+#
+# # 7. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела для тех сотрудников, чье имя не содержит буквы «M».
+# #
+# result = employees[employees['first_name'].str.find('M')==-1]
+# for index, row in result.iterrows():
+#     print(row['last_name'].ljust(15),row['first_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+# #
+# # 8. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела в порядке возрастания номера отдела.
+# #
+# result = employees.sort_values('department_id', ascending=True)
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+# #
+# # 9. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела в порядке убывания имени.
+# #
+# result = employees.sort_values('first_name', ascending=False)
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+# 
+# # 10. Напишите программу Pandas для отображения имени, фамилии, оклада и идентификатора менеджера, где идентификаторы менеджера равны нулю.
+# #
+# result = employees[employees['manager_id'].isnull()]
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['manager_id'])
+# 
+# 11. Напишите программу Pandas для отображения имени, фамилии, оклада и идентификатора менеджера, где идентификаторы менеджера не равны нулю. 
+#
+# result = employees[employees['manager_id'].notnull()]
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['manager_id'])
+# #
+# 15. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела для тех сотрудников, чье имя заканчивается буквой «m». 
+#
+# res=employees[employees.first_name.str[-1]=='m']
+#
+# for index, row in res.iterrows():
+#     print(row['last_name'],row['first_name'], row['salary'], row['department_id'])
+# 
+# # 16. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела для тех сотрудников, чье имя
+# # заканчивается буквой «d» или «n» или «s», а также упорядочите результат в порядке убывания по отделам. Я бы.
+# #
+# result = employees[employees['first_name'].str[-1].isin(['s','d','n'])]
+# result = result.sort_values('department_id', ascending=True)
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+# 
+# # 17. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела для сотрудников, которые работают в отделе 70 или 90.
+# #
+# result = employees[employees['department_id'].isin([70,90])]
+#
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+# #
+# 18. Напишите программу Pandas для отображения имени, фамилии, оклада и номера отдела для тех сотрудников, менеджеры которых имеют ID 120, 103 или 145. 
+#
+# result = employees[employees['manager_id'].isin([120,103, 145])]
+#
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+# 
+# # 19. Напишите программу Pandas, чтобы отобразить имя, фамилию, оклад и номер отдела для тех сотрудников, для которых буква n является третьим символом в их имени.
+# #
+# result = employees[employees.first_name.str[2]=='n']
+# #
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['department_id'])
+
+# # 20. Напишите программу Pandas для отображения имени, идентификатора задания, зарплаты и отдела для тех сотрудников, которые не работают в отделах 50, 30 и 80.
+# #
+# result = employees[~employees['department_id'].isin([50, 30, 80])]
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['salary']).ljust(9),row['manager_id'])
+#
+#
+# # 22. Напишите программу Pandas для расчета минимальной, максимальной и средней зарплаты из файла сотрудников.
+# #
+# print(employees['salary'].max())
+# print(employees['salary'].min())
+# print(employees['salary'].mean())
+# 
+
+# 24. Напишите программу Pandas, чтобы отобразить имя и фамилию и дату вступления в должность сотрудников, которые являются либо торговыми представителями, либо продавцами. 
+# #
+# result = employees[employees['job_id'].isin(['SA_REP', 'SA_MAN'])]
+# for index, row in result.iterrows():
+#     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['job_id']).ljust(15),str(row['hire_date']).ljust(10))
