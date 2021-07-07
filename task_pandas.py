@@ -382,3 +382,5 @@ employees= pd.read_csv('EMPLOYEES.csv')
 # result = employees[employees['job_id'].isin(['SA_REP', 'SA_MAN'])]
 # for index, row in result.iterrows():
 #     print(row['first_name'].ljust(15),row['last_name'].ljust(15),str(row['job_id']).ljust(15),str(row['hire_date']).ljust(10))
+
+#
